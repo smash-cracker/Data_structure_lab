@@ -61,6 +61,15 @@ void delete(int d) {
     temp2->next = temp->next;
 } 
 
+void deleteEnd() {
+    temp = head;
+    while(temp->next!=NULL) {
+        temp2 = temp;
+        temp = temp->next;
+    }
+    temp2->next = NULL;
+}
+
 void main()
 {
 	int c,d,pos,n;
@@ -74,7 +83,7 @@ void main()
         else
             insertEnd(d);
     }
-    printf("\n1. Create a node at beginning\n2. Create node at position\n3. Create node at end\n4.Delete an element\n5. Display");
+    printf("\n1. Create a node at beginning\n2. Create node at position\n3. Create node at end\n4. Delete an element\n5. Delete an element from beginning\n6. Delete an element at end\n7. Display");
     while(1) {
     printf("\nchoice :");
     scanf("%d",&c);
@@ -97,7 +106,11 @@ void main()
                     scanf("%d",&d);
                     delete(d);
                     break;
-            case 5: printList(head);
+            case 5:delete(head->data);
+                    break;
+            case 6:deleteEnd();
+                    break;
+            case 7: printList(head);
                     break;
             
         }
