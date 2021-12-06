@@ -23,7 +23,7 @@ void pop() {
     }
 }
 
-//Insertion at beginning
+//Insertion at end
 void push(int d) {
     if(head == NULL) {
          struct Node* new_node;
