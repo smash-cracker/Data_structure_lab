@@ -1,42 +1,27 @@
 #include<stdio.h>
 #include<stdlib.h>
-int visited[10];
-int a[10][10] = {
-    {0,1,1,1,1,0,0,0},
-    {1,0,0,0,0,1,0,0},
-    {1,0,0,0,0,1,0,0},
-    {1,0,0,0,0,0,1,0},
-    {1,0,0,0,0,0,1,0},
-    {0,1,1,0,0,0,0,1},
-    {0,0,0,1,1,0,0,1},
-    {0,0,0,0,0,1,1,0}
-};
+int visited[10], G[10][10],v;
 
 void DFS(int i) {
-    int j;
     printf("%d ",i);
     visited[i]=1;
-    for(int j=0; j<9;j++) {
-        if(a[i][j]==1 && !visited[j]) {
+    for(int j=0; j<v;j++) {
+        if(G[i][j] && !visited[j]) {
             DFS(j);
         }
     }
 }
 
 int main() {
-    DFS(0);
+    int s;
+    printf("Enter the number of vertices: ");
+    scanf("%d",&v);
+    for(int i=0; i<v; i++) {
+        for(int j=0; j<v; j++) {
+            scanf("%d",&G[i][j]);
+        }
+    } 
+    printf("Enter starting vertex: ");
+    scanf("%d",&s);
+    DFS(s-1);
  }
-// void DFS(int);
-// void main()
-// {
-//     DFS(0);
-// }
-// void DFS(int i)
-// {
-//     int j;
-// printf("\n%d",i);
-//     visited[i]=1;
-// for(j=0;j<9;j++)
-//        if(!visited[j]&&a[i][j]==1)
-//             DFS(j);
-// }
